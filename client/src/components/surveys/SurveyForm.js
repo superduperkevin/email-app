@@ -13,7 +13,7 @@ class SurveyForm extends Component {
       return (
         <Field
           key={name}
-          component={SurveyField}
+          component={SurveyField} 
           type="text"
           label={label}
           name={name}
@@ -45,9 +45,9 @@ function validate(values) {
 
   errors.recipients = validateEmails(values.recipients || '');
 
-  _.each(formFields, ({ name }) => {
+  _.each(formFields, ({ name, noValueError }) => {
     if (!values[name]) {
-      errors[name] = 'You must provide a value';
+      errors[name] = noValueError;
     }
   });
 

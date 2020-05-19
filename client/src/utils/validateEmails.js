@@ -1,5 +1,6 @@
 const re = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
+
 export default emails => {
   const invalidEmails = emails
     .split(',')
@@ -9,6 +10,10 @@ export default emails => {
   if (invalidEmails.length) {
     return `These emails are invalid: ${invalidEmails}`;
   }
+
+  // if (emails[emails.length - 1] === ',') {
+  //   emails.pop();
+  // }
 
   return;
 };

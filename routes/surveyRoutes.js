@@ -16,7 +16,7 @@ module.exports = app => {
     });
 
     res.send(surveys);
-  });
+  }); 
 
   app.get('/api/surveys/:surveyId/:choice', (req, res) => {
     res.send('Thanks for voting!');
@@ -32,7 +32,7 @@ module.exports = app => {
           return { email, surveyId: match.surveyId, choice: match.choice };
         }
       })
-      .compact()
+      .compact()  // remove undefined  
       .uniqBy('email', 'surveyId')
       .each(({ surveyId, email, choice }) => {
         Survey.updateOne(
